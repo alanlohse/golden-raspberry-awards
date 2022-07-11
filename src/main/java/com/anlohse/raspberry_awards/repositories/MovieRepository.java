@@ -15,8 +15,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
             " from Movie a, Movie b\n" +
             " where a.producer = b.producer\n" +
             "   and a.year = b.year - 1\n" +
-            "   and a.winner = 'yes'\n" +
-            "   and b.winner = 'yes'\n" +
+//            "   and a.winner = 'yes'\n" + // comentado para considerar todos ao invés de somente os vencedores
+//            "   and b.winner = 'yes'\n" +
             " order by a.producer, a.year")
     List<AwardVO> findConsecutiveAwards();
 

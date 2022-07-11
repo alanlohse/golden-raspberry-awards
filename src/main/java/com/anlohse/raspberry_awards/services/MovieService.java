@@ -16,7 +16,8 @@ public class MovieService {
     public final MovieRepository movieRepository;
 
     public AwardsResultVO findAwards() {
-        Map<String, List<AwardVO>> awardsGroupedByProducer = movieRepository.findConsecutiveAwards().stream()
+        List<AwardVO> consecutiveAwards = movieRepository.findConsecutiveAwards();
+        Map<String, List<AwardVO>> awardsGroupedByProducer = consecutiveAwards.stream()
                 .collect(Collectors.groupingBy(AwardVO::getProducer));
         List<AwardVO> awards = awardsGroupedByProducer.entrySet().stream()
                 .filter(entry -> entry.getValue().size() > 1) // precisa ter mais de uma premiação consecutiva

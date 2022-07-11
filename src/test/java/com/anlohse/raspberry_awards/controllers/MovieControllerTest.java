@@ -24,10 +24,10 @@ public class MovieControllerTest {
     @Test
     public void testAwards() {
         AwardsResultVO response = this.restTemplate.getForObject("http://localhost:" + port + "/api", AwardsResultVO.class);
-        assertEquals(1, response.getMin().size());
+        assertEquals(2, response.getMin().size());
         assertEquals(1, response.getMax().size());
-        assertEquals(5, response.getMin().get(0).getInterval());
-        assertEquals(7, response.getMax().get(0).getInterval());
+        assertEquals(1, response.getMin().get(0).getInterval());
+        assertEquals(13, response.getMax().get(0).getInterval());
     }
 
 }
